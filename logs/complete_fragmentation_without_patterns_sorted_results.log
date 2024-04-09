@@ -1,0 +1,16 @@
+https://pubchem.ncbi.nlm.nih.gov/compound/11863#section=2D-Structure
+CCC(CC)C(C)C
+DUPUVYJQZSLSJB-UHFFFAOYSA-N
+
+Fragmentation was successfull: True
+Fragmentation from the algorithm:
+CH3         	1       4       
+CH2         	2       2       
+CH          	3       2       
+
+Fragmentation from the reference database:
+CH3         	1       0       
+CH2         	2       0       
+CH          	3       0       
+
+
