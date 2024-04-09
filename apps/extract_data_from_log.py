@@ -1,7 +1,5 @@
 import pandas as pd
 
-log_file_path = 'logs/complete_fragmentation_with_patterns_sorted_results.log'
-
 
 def create_dataset_from_log(log_path):
     with open(log_path, 'r') as file:
@@ -22,11 +20,7 @@ def create_dataset_from_log(log_path):
 
     # Criar o DataFrame
     df = pd.DataFrame(data_rows, columns=['Subgroup Name', 'Subgroup Number', 'Count'])
+    df = df[['Subgroup Number', 'Subgroup Name', 'Count']]
 
-    # Converter as colunas para os tipos corretos
-    df['Subgroup Number'] = df['Subgroup Number'].astype(int)
-    df['Count'] = df['Count'].astype(int)
 
     return df
-
-print(create_dataset_from_log(log_file_path))
