@@ -16,3 +16,6 @@ pillow>=10.2.0
 
 #Excel Reader / Writer
 openpyxl>=3.1.2
+
+#Acesss PubChem Data
+PubChemPy>=1.0.4
