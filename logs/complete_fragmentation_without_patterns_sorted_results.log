@@ -1,14 +1,13 @@
-https://pubchem.ncbi.nlm.nih.gov/compound/5281520#section=2D-Structure
-CC1=CCC(C=CCC(=CCC1)C)(C)C
-FAMPSKZZVDUYOS-HRGUGZIWSA-N
+https://pubchem.ncbi.nlm.nih.gov/compound/445639#section=2D-Structure
+CCCCCCCCC=CCCCCCCCC(=O)O
+ZQPPMHVWECSIRJ-KTKRTIGZSA-N
 
 Fragmentation was successfull: True
 Fragmentation from the algorithm:
-CH3         	1       4       
-CH2         	2       4       
-C           	4       1       
+CH3         	1       1       
+CH2         	2       14      
 CH=CH       	6       1       
-CH=C        	8       2       
+COOH        	42      1       
 
 Fragmentation from the reference database:
 CH3         	1       0       

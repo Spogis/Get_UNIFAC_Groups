@@ -19,8 +19,8 @@ def create_dataset_from_log(log_path):
     data_rows = [line.split(maxsplit=2) for line in data_lines]
 
     # Criar o DataFrame
-    df = pd.DataFrame(data_rows, columns=['Subgroup Name', 'Subgroup Number', 'Count'])
-    df = df[['Subgroup Number', 'Subgroup Name', 'Count']]
+    df = pd.DataFrame(data_rows, columns=['Subgroup Name', 'ID', 'Count'])
+    df = df[['ID', 'Subgroup Name', 'Count']]
 
 
     return df

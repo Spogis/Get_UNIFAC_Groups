@@ -36,7 +36,7 @@ app.layout = html.Div([
             html.Label("IUPAC Name:", style={'fontSize': 20}),
             dcc.Textarea(id='IUPAC-Name',
                          style={'width': '100%', 'padding': '10px', 'fontSize': 18,
-                                'resize': 'none' },
+                                'resize': 'none', 'height': '50px'},
                          disabled=True),
         ], style={'marginBottom': '20px'}),
 
@@ -44,7 +44,15 @@ app.layout = html.Div([
             html.Label("Molecular Formula:", style={'fontSize': 20}),
             dcc.Textarea(id='Molecular-Formula',
                          style={'width': '100%', 'padding': '10px', 'fontSize': 18,
-                                'resize': 'none' },
+                                'resize': 'none', 'height': '50px'},
+                         disabled=True),
+        ], style={'marginBottom': '20px'}),
+
+        html.Div([
+            html.Label("Canonical SMILES:", style={'fontSize': 20}),
+            dcc.Textarea(id='Canonical-SMILES',
+                         style={'width': '100%', 'padding': '10px', 'fontSize': 18,
+                                'resize': 'none', 'height': '50px'},
                          disabled=True),
         ], style={'marginBottom': '20px'}),
 
@@ -65,6 +73,7 @@ app.layout = html.Div([
 @app.callback(Output('table-container', 'children'),
               Output('IUPAC-Name', 'value'),
               Output('Molecular-Formula', 'value'),
+              Output('Canonical-SMILES', 'value'),
               Input('submit-button', 'n_clicks'),
               State('input-cid', 'value'))
 def display_table(n_clicks, cid):
@@ -88,9 +97,15 @@ def display_table(n_clicks, cid):
         print(f"Conteúdo gravado com sucesso em {csv_file_path}")
 
         df = Get_UNIFAC_Groups()
+        df_dwsim = pd.read_csv('apps/DWSIM_unifac.csv')
+
+        resultados_juncao = pd.merge(df_dwsim, df, left_on='Group', right_on='Subgroup Name')
+        novo_dataframe = resultados_juncao[['SUB_ID', 'Group', 'Count']].copy()
+        novo_dataframe = novo_dataframe.rename(columns={'SUB_ID': 'ID'})
+
         Table = dash_table.DataTable(
-            columns=[{"name": i, "id": i} for i in df.columns],
-            data=df.to_dict('records'),
+            columns=[{"name": i, "id": i} for i in novo_dataframe.columns],
+            data=novo_dataframe.to_dict('records'),
             style_cell={'textAlign': 'left', 'padding': '10px', 'fontSize': '18px'},
             style_header={
                 'backgroundColor': 'lightgrey',
@@ -107,10 +122,10 @@ def display_table(n_clicks, cid):
             style_table={'margin': 'auto'},  # Assegura que a tabela será centralizada
             fill_width=False  # Impede a tabela de automaticamente preencher a largura
         )
-        return Table, iupac_name, molecular_formula
+        return Table, iupac_name, molecular_formula, smiles
 
     else:  # Caso contrário, não mostrar nada
-        return "", "", ""
+        return "", "", "", ""
 
 # Rodar o aplicativo
 if __name__ == '__main__':
