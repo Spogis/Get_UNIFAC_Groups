@@ -3,8 +3,8 @@ dash>=2.16.1
 dash-bootstrap-components>=1.5.0
 
 #rdkit e regex
-rdkit>=2023.9.5
-regex>=2023.12.25
+rdkit==2023.9.5
+regex==2023.12.25
 
 #Basic Python Libraries
 pandas>=2.2.0

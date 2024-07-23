@@ -43,5 +43,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 1. Install the required dependencies.
 2. Run the application and input the molecular structure in SMILES notation.
 3. Review the automatically generated fragmentation and the associated thermophysical properties.
-
-For detailed usage instructions and documentation, please refer to the accompanying user guide.

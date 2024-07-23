@@ -127,8 +127,8 @@ def Get_UNIFAC_Groups():
     complete_fragmenter = fragmenter(fragmentation_scheme, 'complete', 100, function_to_choose_fragmentation)
 
     # without sorting the patterns
-    print('####################################################################')
-    print('Fragmenting the reference database without the patterns sorted (simple and complete algorithm)')
+    # print('####################################################################')
+    # print('Fragmenting the reference database without the patterns sorted (simple and complete algorithm)')
 
     i_structure = 0
     f_simple = open('logs/simple_fragmentation_without_patterns_sorted_results.log', 'w+')
@@ -187,8 +187,8 @@ def Get_UNIFAC_Groups():
     complete_fragmenter_sorted_fragmented = []
     complete_fragmenter_sorted_fragmented_and_equal_to_reference_DB = []
 
-    print('####################################################################')
-    print('Fragmenting the reference database with the patterns sorted (simple and complete algorithm)')
+    # print('####################################################################')
+    # print('Fragmenting the reference database with the patterns sorted (simple and complete algorithm)')
     i_structure = 0
     f_simple = open('logs/simple_fragmentation_with_patterns_sorted_results.log', 'w+')
     f_complete = open('logs/complete_fragmentation_with_patterns_sorted_results.log', 'w+')
@@ -228,6 +228,9 @@ def Get_UNIFAC_Groups():
     f_simple.close()
     f_complete.close()
 
-    log_file_path = 'logs/complete_fragmentation_with_patterns_sorted_results.log'
+    #log_file_path = 'logs/complete_fragmentation_with_patterns_sorted_results.log'
+    log_file_path = 'logs/complete_fragmentation_without_patterns_sorted_results.log'
+    #log_file_path = 'logs/simple_fragmentation_with_patterns_sorted_results.log'
+    #log_file_path = 'logs/simple_fragmentation_without_patterns_sorted_results.log'
 
     return create_dataset_from_log(log_file_path)
