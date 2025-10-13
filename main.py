@@ -129,4 +129,4 @@ def display_table(n_clicks, cid):
 
 # Rodar o aplicativo
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run(debug=False)
